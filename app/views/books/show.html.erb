@@ -1,0 +1,16 @@
+<h1><%= @book.name %> <%= @book.author_name %></h1>
+<ul>
+  <li>
+    <span>description: </span>
+    <span><%= @book.description %></span>
+  </li>
+  <li>
+    <span>gender: </span>
+    <span><%= @book.gender %></span>
+  </li>
+  <li>
+    <span>rental: </span>
+    <span><%= @book.is_rental %></span>
+  </li>
+</ul>
+<%= link_to 'Back', :back %>

@@ -1,0 +1,36 @@
+<%= form_with model: book do |form|%>
+  <div>
+    <%= form.label :name, 'Name' %>
+    <%= form.text_field :name %>
+    <% if book.errors[:name] %>
+      <span style='color: red'><%= book.errors[:name][0] %></span>
+    <% end %>
+  </div>
+  <div>
+    <%= form.label :author_name, 'author_name' %>
+    <%= form.text_field :author_name %>
+  </div>
+  <% if book.errors[:author_name] %>
+    <span style='color: red'><%= book.errors[:author_name][0] %></span>
+  <% end %>
+  <div>
+    <%= form.label :description, 'description' %>
+    <%= form.text_field :description %>
+  </div>
+  <% if book.errors[:description] %>
+    <span style='color: red'><%= book.errors[:description][0] %></span>
+  <% end %>
+  <div>
+    <%= form.label :gender, 'gender' %>
+    <%= form.text_field :gender %>
+  </div>
+  <% if book.errors[:gender] %>
+    <span style='color: red'><%= book.errors[:gender][0] %></span>
+  <% end %>
+  <% if book.persisted? %>
+    <%= form.submit 'Update book' %>
+  <% else %>
+    <%= form.submit 'Create book' %>
+  <% end %>
+<% end %>
+<%= link_to 'Back', :back %>

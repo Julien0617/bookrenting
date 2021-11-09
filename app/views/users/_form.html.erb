@@ -1,0 +1,67 @@
+
+  <%= form_with model: user do |form|%>
+    <div class="ml-80">
+      <div class="grid gap-1 grid-cols-form">
+        <%= form.label :first_name, 'First Name' %>
+        <%= form.text_field :first_name, class:"text-center w-60 mb-1 bg-yellow-100 outline-none h-12"%>
+        <% if user.errors[:first_name] %>
+          <span style='color: red'><%= user.errors[:first_name][0] %></span>
+        <% end %>
+      </div>
+      <div class="grid gap-1 grid-cols-form">
+        <%= form.label :last_name, 'Last Name' %>
+        <%= form.text_field :last_name, class:"text-center w-60 mb-1 bg-yellow-100 outline-none h-12" %>
+      </div>
+      <% if user.errors[:last_name] %>
+        <span style='color: red'><%= user.errors[:last_name][0] %></span>
+      <% end %>
+      <div class="grid gap-1 grid-cols-form">
+        <%= form.label :email, 'Email' %>
+        <%= form.text_field :email, class:"text-center w-60 mb-1 bg-yellow-100 outline-none h-12" %>
+      </div>
+      <% if user.errors[:email] %>
+        <span style='color: red'><%= user.errors[:email][0] %></span>
+      <% end %>
+      <div class="grid gap-1 grid-cols-form">
+        <%= form.label :phone, 'Phone' %>
+        <%= form.text_field :phone, class:"text-center w-60 mb-1 bg-yellow-100 outline-none h-12" %>
+      </div>
+      <% if user.errors[:phone] %>
+        <span style='color: red'><%= user.errors[:phone][0] %></span>
+      <% end %>
+      <div class="grid gap-1 grid-cols-form">
+        <%= form.label :city, 'City' %>
+        <%= form.text_field :city, class:"text-center w-60 mb-1 bg-yellow-100 outline-none h-12" %>
+      </div>
+      <% if user.errors[:city] %>
+        <span style='color: red'><%= user.errors[:city][0] %></span>
+      <% end %>
+      <div class="grid gap-1 grid-cols-form">
+        <%= form.label :town, 'Town' %>
+        <%= form.text_field :town, class:"text-center w-60 mb-1 bg-yellow-100 outline-none h-12" %>
+      </div>
+      <% if user.errors[:town] %>
+        <span style='color: red'><%= user.errors[:town][0] %></span>
+      <% end %>
+      <div class="grid gap-1 grid-cols-form">
+        <%= form.label :password, 'Password' %>
+        <%= form.password_field :password, class:"text-center w-60 mb-1 bg-yellow-100 outline-none h-12" %>
+      </div>
+      <% if user.errors[:password] %>
+        <span style='color: red'><%= user.errors[:password][0] %></span>
+      <% end %>
+      <div class="grid gap-1 grid-cols-form">
+        <%= form.label :password_confirmation, 'Password Confirmation' %>
+        <%= form.password_field :password_confirmation, class:"text-center w-60 mb-1 bg-yellow-100 outline-none h-12" %>
+      </div>
+      <% if user.errors[:password_confirmation] %>
+        <span style='color: red'><%= user.errors[:password_confirmation][0] %></span>
+      <% end %>
+      <% if user.persisted? %>
+        <%= form.submit 'Update', class:"ml-80 w-28 h-12 bg-yellow-500 rounded-2xl text-white" %>
+      <% else %>
+        <%= form.submit 'Create', class:"ml-80 w-28 h-12 bg-yellow-500 rounded-2xl text-white" %>
+      <% end %>
+    </div>
+    
+  <% end %>

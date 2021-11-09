@@ -1,0 +1,78 @@
+<div>
+  <div class="bg-red-700 flex h-24 justify-between text-white">
+    <h1 class="pt-8 pl-4 font-bold">BOOK RENTING</h1>
+    <button class="w-28 h-12 bg-yellow-500 mt-6 mr-4 rounded-2xl outline-none">
+      <%= link_to 'Logged out', logout_path, method: :delete, data: {confirm: 'Are you sure?'}%>
+    </button>
+  </div>
+  <h1>LIST OF ALL THE BOOKS</h1>
+  <button>
+    <%= link_to 'Add a Book', new_user_book_path%>
+  </button>
+  <link
+	href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+	rel="stylesheet">
+  <div class="flex items-center justify-center">
+	  <div class="col-span-12">
+		  <div class="overflow-auto lg:overflow-visible ">
+			  <table class="table text-gray-400 border-separate space-y-6 text-sm">
+				  <thead class="bg-gray-800 text-gray-500">
+					  <tr>
+						  <th class="p-3">Name</th>
+              <th class="p-3 text-left">Author</th>
+              <th class="p-3 text-left">Description</th>
+              <th class="p-3 text-left">Gender</th>
+              <th class="p-3 text-left">Action</th>
+					  </tr>
+				  </thead>
+				  <tbody>
+            <% @book.each do |book| %>
+					    <tr >
+                <td class="p-3 bg-gray-800"><%= book.name %></td>
+                <td class="p-3 bg-gray-800"><%= book.author_name %></td>
+                <td class="p-3 bg-gray-800"><%= book.description %></td>
+                <td class="p-3 bg-gray-800"><%= book.gender %></td>
+                <td class="text-white bg-yellow-500 text-center p-3 outline-none">
+                  <button>
+                    <%= link_to 'show', user_book_path(@current_user_id, book.id)%>
+                  </button>
+                  <button class="border-black border-solid outline-none">
+                    <%= link_to 'edit', edit_user_book_path(@current_user_id, book.id) %>
+                  </button>
+                  <button>
+                    <%= link_to 'delete', user_book_path(@current_user_id, book.id), method: :delete, data: {confirm: 'Are you sure?'}%>
+                  </button>
+                </td>
+					    </tr>
+            <% end %>
+				  </tbody>
+			</table>
+		</div>
+	</div>
+  <div class="bg-black h-16 w-screen fixed bottom-0">
+    <h1 class="pt-8 text-center text-white">© Tout droit réservé  TECHSHELTER 2021</h1>
+  </div>
+</div>
+<style>
+	.table {
+		border-spacing: 0 15px;
+	}
+
+	i {
+		font-size: 1rem !important;
+	}
+
+	.table tr {
+		border-radius: 20px;
+	}
+
+	tr td:nth-child(n+5),
+	tr th:nth-child(n+5) {
+		border-radius: 0 .625rem .625rem 0;
+	}
+
+	tr td:nth-child(1),
+	tr th:nth-child(1) {
+		border-radius: .625rem 0 0 .625rem;
+	}
+</style>

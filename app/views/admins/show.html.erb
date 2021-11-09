@@ -1,0 +1,9 @@
+<p>LIST OF BOOK ARE RENT</p>
+<% @book.each do |book| %>
+  <div>
+    <p><%= book.name %></p>
+    <p><%= book.author_name %></p>
+    <p><%= book.description %></p>
+    <p><%= book.gender %></p>
+   </div>
+<% end %>

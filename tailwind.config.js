@@ -4,7 +4,14 @@ module.exports = {
     ],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      gridTemplateColumns: {
+       'form': '190px minmax(900px, 1fr) 100px',
+      },
+      backgroundImage: {
+        'book': "url('/book.jpeg')",
+       }
+    },
   },
   variants: {
     extend: {},

@@ -1,0 +1,26 @@
+<h1>List of book rental</h1>
+<table>
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>author_name</th>
+      <th>description</th>
+      <th>gender</th>
+      <th>is_rental</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @books.each do |book| %>
+    <tr>
+      <td><%= book.name %></td>
+      <td><%= book.author_name %></td>
+      <td><%= book.description %></td>
+      <td><%= book.gender %></td>
+      <td><%= book.is_rental %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Back', :back %>
+

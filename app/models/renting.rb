@@ -1,0 +1,3 @@
+class Renting < ApplicationRecord
+  
+end

@@ -1,0 +1,19 @@
+<div class="w-full overflow-hidden">
+  <div class="bg-red-700 flex h-24 justify-between text-white">
+    <h1 class="pt-8 pl-4 font-bold">BOOK RENTING</h1>
+    <button class="w-28 h-12 bg-yellow-500 mt-6 mr-4 rounded-2xl outline-none">
+      <%= link_to 'Signup', signup_path%>
+    </button>
+  </div>
+  <div class="pt-24 text-center">
+    <h1 class="pb-8 underline font-bold">CONNECTION</h1>
+    <%= form_with url: login_path do |form| %>
+      <%= form.text_field :email, placeholder:'Email', class:"pl-2 bg-yellow-100 outline-none h-12"%>
+      <%= form.password_field :password, placeholder:'*****', class:"pl-2 bg-yellow-100 outline-none h-12"%>
+      <%= form.submit 'Login', class:"w-28 h-12 bg-yellow-500 rounded-2xl text-white"%>
+    <% end %>
+  </div>
+  <div class="bg-black h-16 mt-72">
+    <h1 class="pt-8 text-center text-white">© Tout droit réservé  TECHSHELTER 2021</h1>
+  </div>
+</div>

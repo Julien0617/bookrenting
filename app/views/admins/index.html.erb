@@ -1,0 +1,42 @@
+<div>
+  <div class="bg-red-700 flex h-24 justify-between text-white">
+    <h1 class="pt-8 pl-4 font-bold">BOOK RENTING</h1>
+    <button class="w-28 h-12 bg-yellow-500 mt-6 mr-4 rounded-2xl outline-none">
+      <%= link_to 'Logged out', logout_path, method: :delete, data: {confirm: 'Are you sure?'}%>
+    </button>
+  </div>
+  <h1>LIST OF ALL THE BOOKS</h1>
+  <button>
+    <%= link_to 'Add a Book', new_user_book_path%>
+  </button>
+
+  <table >
+    <thead>
+      <tr>
+        <th>name</th>
+        <th>author_name</th>
+        <th>description</th>
+        <th>gender</th>
+        <th>is_rental</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @book.each do |book| %>
+        <tr>
+          <td><%= book.name %></td>
+          <td><%= book.author_name %></td>
+          <td><%= book.description %></td>
+          <td><%= book.gender %></td>
+          <td><%= book.is_rental %></td>
+          <td><%= link_to 'show', book_path(book)%></td>
+          <td><%= link_to 'edit', edit_admin_path(book)%></td>
+          <td><%= link_to 'delete', book_path(book), method: :delete, data: {confirm: 'Are you sure?'}%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="bg-black h-16 w-screen fixed bottom-0">
+    <h1 class="pt-8 text-center text-white">© Tout droit réservé  TECHSHELTER 2021</h1>
+  </div>
+</div>
