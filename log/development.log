@@ -17874,3 +17874,336 @@ Processing by AdminsController#show as HTML
 Completed 200 OK in 90ms (Views: 83.1ms | ActiveRecord: 2.7ms | Allocations: 4535)
 
 
+Started GET "/" for 127.0.0.1 at 2022-02-05 14:26:07 +0000
+  [1m[35m (132.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 32.5ms | Allocations: 2053)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 574.6ms | Allocations: 8763)
+Completed 200 OK in 677ms (Views: 612.7ms | ActiveRecord: 0.0ms | Allocations: 11866)
+
+
+Started GET "/packs/js/application-d70c650a904e38628808.js" for 127.0.0.1 at 2022-02-05 14:26:15 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/packs/js/application-d70c650a904e38628808.js"):
+  
+Started GET "/" for 127.0.0.1 at 2022-02-05 14:26:22 +0000
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1191)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 3088)
+Completed 200 OK in 15ms (Views: 13.5ms | ActiveRecord: 0.0ms | Allocations: 3539)
+
+
+Started GET "/signup" for 127.0.0.1 at 2022-02-05 14:27:06 +0000
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 43.2ms | Allocations: 2297)
+  Rendered users/new.html.erb within layouts/application (Duration: 75.9ms | Allocations: 2633)
+  Rendered layout layouts/application.html.erb (Duration: 84.2ms | Allocations: 4568)
+Completed 200 OK in 568ms (Views: 88.5ms | ActiveRecord: 215.9ms | Allocations: 13228)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-02-05 14:28:54 +0000
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"first_name"=>"sorel julien", "last_name"=>"nana kiaribia", "email"=>"soreljulienn@gmail.com", "phone"=>"0153528399", "city"=>"abidjan", "town"=>"bingerville", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Create (92.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "phone", "city", "town", "created_at", "updated_at", "password_digest") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first_name", "sorel julien"], ["last_name", "nana kiaribia"], ["email", "soreljulienn@gmail.com"], ["phone", "0153528399"], ["city", "abidjan"], ["town", "bingerville"], ["created_at", "2022-02-05 14:28:54.787563"], ["updated_at", "2022-02-05 14:28:54.787563"], ["password_digest", "$2a$12$A2j47G4/CYjaeetdDWoXDO6DsJorYnSxz.soXIATEOiMRrRrMfgQ6"]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (30.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Redirected to http://127.0.0.1:5000/login
+Completed 302 Found in 473ms (ActiveRecord: 123.2ms | Allocations: 3803)
+
+
+Started GET "/login" for 127.0.0.1 at 2022-02-05 14:28:54 +0000
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1190)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 3067)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.0ms | Allocations: 3519)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-02-05 14:29:18 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"soreljulienn@gmail.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "soreljulienn@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8:in `create'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "soreljulienn@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:9:in `create'
+Redirected to http://127.0.0.1:5000/users
+Completed 302 Found in 401ms (ActiveRecord: 5.1ms | Allocations: 3986)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-02-05 14:29:18 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "ef94ed87-e8a4-430b-8523-41dd7bccd884"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mBook Load (61.0ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."is_rental" = $1[0m  [["is_rental", false]]
+  ↳ app/views/users/index.html.erb:31
+  Rendered users/index.html.erb within layouts/application (Duration: 93.7ms | Allocations: 1187)
+  Rendered layout layouts/application.html.erb (Duration: 101.4ms | Allocations: 3074)
+Completed 200 OK in 253ms (Views: 41.6ms | ActiveRecord: 64.6ms | Allocations: 6293)
+
+
+Started GET "/admins/ef94ed87-e8a4-430b-8523-41dd7bccd884" for 127.0.0.1 at 2022-02-05 14:30:10 +0000
+Processing by AdminsController#show as HTML
+  Parameters: {"id"=>"ef94ed87-e8a4-430b-8523-41dd7bccd884"}
+  Rendering layout layouts/application.html.erb
+  Rendering admins/show.html.erb within layouts/application
+  [1m[36mBook Load (54.5ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."is_rental" = $1 AND "books"."rental_id" = $2[0m  [["is_rental", true], ["rental_id", "ef94ed87-e8a4-430b-8523-41dd7bccd884"]]
+  ↳ app/views/admins/show.html.erb:2
+  Rendered admins/show.html.erb within layouts/application (Duration: 125.2ms | Allocations: 1116)
+  Rendered layout layouts/application.html.erb (Duration: 366.6ms | Allocations: 3070)
+Completed 200 OK in 594ms (Views: 474.8ms | ActiveRecord: 54.5ms | Allocations: 4257)
+
+
+Started GET "/" for 127.0.0.1 at 2022-08-03 18:51:27 +0000
+  [1m[35m (76.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 16.0ms | Allocations: 2052)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 573.8ms | Allocations: 8761)
+Completed 200 OK in 648ms (Views: 589.3ms | ActiveRecord: 0.0ms | Allocations: 11861)
+
+
+Started GET "/packs/js/application-d70c650a904e38628808.js" for 127.0.0.1 at 2022-08-03 18:51:32 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/packs/js/application-d70c650a904e38628808.js"):
+  
+Started GET "/" for 127.0.0.1 at 2022-08-03 18:52:00 +0000
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 5.0ms | Allocations: 1192)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 17.8ms | Allocations: 4163)
+Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.0ms | Allocations: 4612)
+
+
+Started GET "/packs/js/application-d70c650a904e38628808.js" for 127.0.0.1 at 2022-08-03 18:52:00 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/packs/js/application-d70c650a904e38628808.js"):
+  
+Started GET "/" for 127.0.0.1 at 2022-08-03 18:52:02 +0000
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 6.1ms | Allocations: 1191)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 24.7ms | Allocations: 4181)
+Completed 200 OK in 28ms (Views: 26.4ms | ActiveRecord: 0.0ms | Allocations: 4627)
+
+
+Started GET "/packs/js/application-d70c650a904e38628808.js" for 127.0.0.1 at 2022-08-03 18:52:02 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/packs/js/application-d70c650a904e38628808.js"):
+  
+Started GET "/" for 127.0.0.1 at 2022-08-03 18:52:03 +0000
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1191)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.2ms | Allocations: 4162)
+Completed 200 OK in 18ms (Views: 17.4ms | ActiveRecord: 0.0ms | Allocations: 4606)
+
+
+Started GET "/packs/js/application-d70c650a904e38628808.js" for 127.0.0.1 at 2022-08-03 18:52:04 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/packs/js/application-d70c650a904e38628808.js"):
+  
+Started GET "/signup" for 127.0.0.1 at 2022-08-03 18:52:43 +0000
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 26.2ms | Allocations: 2298)
+  Rendered users/new.html.erb within layouts/application (Duration: 48.6ms | Allocations: 2635)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 62.3ms | Allocations: 5742)
+Completed 200 OK in 276ms (Views: 69.3ms | ActiveRecord: 122.4ms | Allocations: 14397)
+
+
+Started GET "/packs/js/application-d70c650a904e38628808.js" for 127.0.0.1 at 2022-08-03 18:52:43 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/packs/js/application-d70c650a904e38628808.js"):
+  
+Started POST "/users" for 127.0.0.1 at 2022-08-03 18:52:52 +0000
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"first_name"=>"", "last_name"=>"", "email"=>"", "phone"=>"", "city"=>"", "town"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create"}
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 88.5ms | Allocations: 10565)
+  Rendered users/new.html.erb within layouts/application (Duration: 89.8ms | Allocations: 10660)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 96.0ms | Allocations: 13673)
+Completed 200 OK in 105ms (Views: 98.0ms | ActiveRecord: 0.0ms | Allocations: 15472)
+
+
+Started GET "/packs/js/application-d70c650a904e38628808.js" for 127.0.0.1 at 2022-08-03 18:52:53 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/packs/js/application-d70c650a904e38628808.js"):
+  
+Started GET "/signup" for 127.0.0.1 at 2022-08-03 18:52:58 +0000
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 3.3ms | Allocations: 981)
+  Rendered users/new.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1076)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 17.5ms | Allocations: 4164)
+Completed 200 OK in 20ms (Views: 18.5ms | ActiveRecord: 0.0ms | Allocations: 4647)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-08-03 18:53:01 +0000
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"first_name"=>"", "last_name"=>"", "email"=>"", "phone"=>"", "city"=>"", "town"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create"}
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 55.0ms | Allocations: 9201)
+  Rendered users/new.html.erb within layouts/application (Duration: 56.1ms | Allocations: 9296)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 66.4ms | Allocations: 12291)
+Completed 200 OK in 77ms (Views: 68.8ms | ActiveRecord: 0.0ms | Allocations: 13669)
+
+
+Started GET "/packs/js/application-d70c650a904e38628808.js" for 127.0.0.1 at 2022-08-03 18:53:01 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/packs/js/application-d70c650a904e38628808.js"):
+  
+Started POST "/users" for 127.0.0.1 at 2022-08-03 18:53:11 +0000
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"first_name"=>"", "last_name"=>"", "email"=>"", "phone"=>"", "city"=>"", "town"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create"}
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 51.9ms | Allocations: 9201)
+  Rendered users/new.html.erb within layouts/application (Duration: 52.4ms | Allocations: 9296)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 64.8ms | Allocations: 12309)
+Completed 200 OK in 76ms (Views: 66.7ms | ActiveRecord: 0.0ms | Allocations: 13677)
+
+
+Started GET "/packs/js/application-d70c650a904e38628808.js" for 127.0.0.1 at 2022-08-03 18:53:11 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/packs/js/application-d70c650a904e38628808.js"):
+  
+Started POST "/users" for 127.0.0.1 at 2022-08-03 18:53:14 +0000
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"first_name"=>"", "last_name"=>"", "email"=>"", "phone"=>"", "city"=>"", "town"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create"}
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 59.0ms | Allocations: 9201)
+  Rendered users/new.html.erb within layouts/application (Duration: 59.6ms | Allocations: 9296)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 72.0ms | Allocations: 12309)
+Completed 200 OK in 84ms (Views: 76.0ms | ActiveRecord: 0.0ms | Allocations: 13681)
+
+
+Started GET "/signup" for 127.0.0.1 at 2022-08-03 18:53:16 +0000
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 7.9ms | Allocations: 981)
+  Rendered users/new.html.erb within layouts/application (Duration: 9.5ms | Allocations: 1076)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 26.0ms | Allocations: 4145)
+Completed 200 OK in 31ms (Views: 28.0ms | ActiveRecord: 0.0ms | Allocations: 4620)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-08-03 18:55:43 +0000
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"first_name"=>"john ", "last_name"=>"doe", "email"=>"johndoe@gmail.com", "phone"=>"0787088203", "city"=>"Abidjan", "town"=>"Cameroun", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Create (121.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "phone", "city", "town", "created_at", "updated_at", "password_digest") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first_name", "john "], ["last_name", "doe"], ["email", "johndoe@gmail.com"], ["phone", "0787088203"], ["city", "Abidjan"], ["town", "Cameroun"], ["created_at", "2022-08-03 18:55:45.166133"], ["updated_at", "2022-08-03 18:55:45.166133"], ["password_digest", "$2a$12$c/jzRWhjEN3AfT7eegyZXOExTfJPtPyT2fBQ1ltMENq7p4QmpW9xO"]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (29.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Redirected to http://127.0.0.1:3000/login
+Completed 302 Found in 507ms (ActiveRecord: 153.6ms | Allocations: 3404)
+
+
+Started GET "/login" for 127.0.0.1 at 2022-08-03 18:55:45 +0000
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1191)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 612.1ms | Allocations: 4179)
+Completed 200 OK in 614ms (Views: 613.4ms | ActiveRecord: 0.0ms | Allocations: 4629)
+
+
+Started GET "/packs/js/application-d70c650a904e38628808.js" for 127.0.0.1 at 2022-08-03 18:55:46 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/packs/js/application-d70c650a904e38628808.js"):
+  
+Started POST "/login" for 127.0.0.1 at 2022-08-03 18:56:10 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"johndoe@gmail.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (4.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "johndoe@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8:in `create'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "johndoe@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:9:in `create'
+Redirected to http://127.0.0.1:3000/users
+Completed 302 Found in 1821ms (ActiveRecord: 8.6ms | Allocations: 4014)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-08-03 18:56:12 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (43.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "1bf870a4-f939-45ac-a495-6d08c2785402"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mBook Load (7.0ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."is_rental" = $1[0m  [["is_rental", false]]
+  ↳ app/views/users/index.html.erb:31
+  Rendered users/index.html.erb within layouts/application (Duration: 36.2ms | Allocations: 1187)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 56.0ms | Allocations: 4286)
+Completed 200 OK in 221ms (Views: 50.9ms | ActiveRecord: 54.6ms | Allocations: 7509)
+
+
+Started GET "/packs/js/application-d70c650a904e38628808.js" for 127.0.0.1 at 2022-08-03 18:56:12 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/packs/js/application-d70c650a904e38628808.js"):
+  
+Started GET "/admins/1bf870a4-f939-45ac-a495-6d08c2785402" for 127.0.0.1 at 2022-08-03 18:56:21 +0000
+Processing by AdminsController#show as HTML
+  Parameters: {"id"=>"1bf870a4-f939-45ac-a495-6d08c2785402"}
+  Rendering layout layouts/application.html.erb
+  Rendering admins/show.html.erb within layouts/application
+  [1m[36mBook Load (2.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."is_rental" = $1 AND "books"."rental_id" = $2[0m  [["is_rental", true], ["rental_id", "1bf870a4-f939-45ac-a495-6d08c2785402"]]
+  ↳ app/views/admins/show.html.erb:2
+  Rendered admins/show.html.erb within layouts/application (Duration: 41.1ms | Allocations: 1121)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 54.8ms | Allocations: 4287)
+Completed 200 OK in 265ms (Views: 171.7ms | ActiveRecord: 2.1ms | Allocations: 5465)
+
+
+Started GET "/packs/js/application-d70c650a904e38628808.js" for 127.0.0.1 at 2022-08-03 18:56:22 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/packs/js/application-d70c650a904e38628808.js"):
+  
+Started GET "/users" for 127.0.0.1 at 2022-08-03 18:56:26 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "1bf870a4-f939-45ac-a495-6d08c2785402"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mBook Load (1.9ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."is_rental" = $1[0m  [["is_rental", false]]
+  ↳ app/views/users/index.html.erb:31
+  Rendered users/index.html.erb within layouts/application (Duration: 4.8ms | Allocations: 828)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 22.9ms | Allocations: 3927)
+Completed 200 OK in 37ms (Views: 23.0ms | ActiveRecord: 5.8ms | Allocations: 5175)
+
+
